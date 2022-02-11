@@ -1,0 +1,32 @@
+{
+  "name": "askOracle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "_moduleAliases": {
+    "@root": ".",
+    "@AskOracle": "./services/API",
+    "@AskOracleModels":"./services/API/app/models",
+    "@AskOracleAPI":"./services/API/config/app.js",
+    "@config": "./services/API/config/index.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "body-parser": "1.19.0",
+    "mongoose": "5.7.11",
+    "cors": "2.8.5",
+    "consign": "0.1.6",
+    "jsonwebtoken": "8.5.1",
+    "morgan": "1.9.1",
+    "passport": "0.4.0",
+    "passport-jwt": "4.0.0",
+    "module-alias": "2.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon services"
+  },
+  "author": "",
+  "license": "ISC"
+}

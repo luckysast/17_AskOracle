@@ -1,0 +1,29 @@
+version: '2'
+services:
+    oracle:
+        build:
+            context: .
+        ports:
+            - 3001:3001
+            - 3000:3000
+        depends_on:
+            - mongodb
+        volumes:
+            - ./main/application:/usr/app/application
+            - ./main/services:/usr/app/services
+            - ./main/package.json:/usr/app/package.json
+        networks:
+            - oracle_network
+        command: ["sh", "/usr/app/run.sh"]
+    mongodb:
+        image: mongo:3.6
+        container_name: "mongodb"
+        environment:
+          - MONGO_DATA_DIR=/data/db
+          - MONGO_LOG_DIR=/dev/null
+          - MONGO_INITDB_DATABASE=univeria
+        networks:
+            - oracle_network
+        command: mongod --smallfiles --logpath=/dev/null # --quiet
+networks:
+    oracle_network:
